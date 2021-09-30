@@ -3,7 +3,7 @@
     <h1>To do</h1>
     <table>
       <tr v-for="item in list" :key="item.id">
-        <td :title="item.detail">{{item.title}}</td>
+        <td id=title :title="item.detail">{{item.title}}</td>
         <td><span @click="remove(item)" class="material-icons">&#xe14c;</span></td>
       </tr>
     </table>
@@ -36,8 +36,13 @@ export default {
       this.save()
     },
     add({target}) {
+      try {
+        var id = this.list[this.list.length - 1].id + 1
+      } catch (error) {
+        id = 1
+      }
       this.list.unshift({
-        id: this.list[this.list.length - 1].id + 1,
+        id: id,
         title: target.title.value,
         detail: target.detail.value
       })
@@ -156,7 +161,9 @@ export default {
       width: 85%;
     }
 
-
+    #title {
+      width: 88%;
+    }
 
     span {
       margin-left: 10px;

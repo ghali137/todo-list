@@ -55,7 +55,7 @@ export default {
     return {
       visible: false,
       list: [
-        {id: 1, title: 'An example note', detail: 'Its detail'},
+        {id: 1, title: 'An example note. Hover over me for detail', detail: 'Congratulations'},
       ],
     }
   },
